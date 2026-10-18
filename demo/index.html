@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Commerce Copilot — Public Engineering Demo</title>
+<meta name="description" content="Безопасная демонстрация AI workflow: распознавание запроса, правила ценообразования, human-in-the-loop.">
+<link rel="stylesheet" href="./styles.css"></head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><div class="brand"><span class="brand-mark">C</span><div><strong>COMPANION LAB</strong><span>AI workflow · offline demo</span></div></div>
+      <div class="top-actions"><span class="connection"><span class="green-dot"></span> Без внешних API</span><a class="text-link" href="../README.md" title="Исходники и документация">README ↗</a></div>
+    </header>
+    <main>
+      <section class="intro"><div class="eyebrow">PORTFOLIO / AI-ASSISTED ENGINEERING</div>
+        <h1>Модель понимает. <em>Код считает.</em> Человек решает.</h1>
+        <p>Мини-версия рабочего сценария AI-помощника менеджера: извлечение намерения, проверка названий, безопасная калькуляция и ручное подтверждение.</p>
+      </section>
+      <section class="workspace">
+        <div class="panel input-panel"><div class="panel-heading"><div><div class="step">01 / INPUT</div><h2>Запрос клиента</h2></div><span class="mini-pill">Synthetic data</span></div>
+          <label for="message">Сообщение</label>
+          <textarea id="message" spellcheck="false" rows="5">Нужны неон дрифт и лесные хранители до 2000 на всё</textarea>
+          <div class="examples" aria-label="Примеры сообщений">
+            <button data-example="Нужны неон дрифт и лесные хранители до 2000 на всё">Точный бюджет</button>
+            <button data-example="Хочу хроники света до 3000">Неоднозначное название</button>
+            <button data-example="Хочу океан квест и неон дрифт, каждая до 1500">За каждую игру</button>
+          </div>
+          <div class="field-row"><div><label for="region">Регион</label><select id="region"><option value="A">Регион A</option><option value="B">Регион B</option></select></div>
+            <button id="run" class="primary">Обработать запрос <span aria-hidden="true">→</span></button></div>
+          <div class="note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>AI-извлечение эмулируется локально. Никакие сообщения не отправляются в сеть.</span></div>
+        </div>
+        <div class="panel output-panel"><div class="panel-heading"><div><div class="step">02 / REVIEW</div><h2>Предложение менеджеру</h2></div><span class="mini-pill review">Human in the loop</span></div>
+          <div class="runtime"><div class="flow-steps"><span>Mock LLM</span><b>→</b><span>Validation</span><b>→</b><span>Rules Engine</span></div><span id="latency">Ожидание</span></div>
+          <div id="warnings" class="warnings" aria-live="polite"></div>
+          <div class="cards" id="cards"><p class="placeholder">Нажмите «Обработать запрос», чтобы проверить сценарий.</p></div>
+          <div class="total"><div><span>Итого по каталогу</span><strong id="total">—</strong></div><button id="approve" disabled>Подтвердить вручную</button></div>
+          <p class="approve-status" id="approve-status" role="status">Запрос ещё не обработан</p>
+        </div>
+      </section>
+      <section class="architecture"><div class="eyebrow">ENGINEERING / DECISIONS</div><h2>Что важно в архитектуре</h2>
+        <div class="features"><article><div class="feature-number">01</div><h3>Deterministic pricing</h3><p>Модель не назначает цены. Источник истины — доверенный каталог и правила на серверной стороне.</p></article>
+          <article><div class="feature-number">02</div><h3>Explicit ambiguity</h3><p>Неоднозначные названия и смысл бюджета не угадываются, а отмечаются для проверки человеком.</p></article>
+          <article><div class="feature-number">03</div><h3>Human approval</h3><p>Подтверждение отделено от подготовки предложения. Отправка заказов и изменение данных отсутствуют в демо.</p></article></div>
+      </section>
+    </main><footer>Sanitized engineering showcase · Mock data · No live integration · 2026</footer>
+  </div><script type="module" src="./app.js"></script>
+</body></html>

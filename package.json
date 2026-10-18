@@ -1,0 +1,9 @@
+{
+  "name": "ai-commerce-copilot-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sanitized, offline, non-production showcase of AI-assisted commerce workflow",
+  "scripts": {"test": "node --test", "serve": "python3 -m http.server 8000"},
+  "engines": {"node": ">=20"}
+}
